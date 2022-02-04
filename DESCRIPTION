@@ -12,4 +12,8 @@ LazyData: true
 Imports: 
     dplyr,
     ggplot2,
-    patchwork
+    magrittr,
+    patchwork,
+    purrr,
+    tidyr
+RoxygenNote: 7.1.1

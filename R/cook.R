@@ -14,8 +14,8 @@ cook <- function(mod1, mod2) {
   n <- length(mod1$y)
   cooks.distance(mod1) %>%
     graph(4 / (n - mod1$rank)) +
-    labs(subtitle = "Distância do Modelo NI", y = "Dis Cook") +
+    ggplot2::labs(subtitle = "Distância do Modelo 1", y = "Dis Cook") +
     cooks.distance(mod2) %>%
     graph(4 / (n - mod2$rank)) +
-    labs(subtitle = "Distância do Modelo G", y = "Dis Cook")
+    ggplot2::labs(subtitle = "Distância do Modelo 2", y = "Dis Cook")
 }

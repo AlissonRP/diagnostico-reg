@@ -15,10 +15,17 @@ resid <- function(mod1, mod2) {
   res2 <- rstudent(mod2)
   res1 %>%
     graph(3) +
-    geom_hline(yintercept = 0, linetype = "dotted", color = "deepskyblue2") +
-    labs(subtitle = "Residuos do Modelo NI", y = "Resíduo") +
+    ggplot2::geom_hline(yintercept = 0, linetype = "dotted", color = "deepskyblue2") +
+    ggplot2::labs(subtitle = "Residuos do Modelo 1", y = "Resíduo") +
     res2 %>%
     graph(3) +
-    geom_hline(yintercept = 0, linetype = "dotted", color = "deepskyblue2") +
-    labs(subtitle = "Residuos do Modelo G", y = "Resíduo")
+    ggplot2::geom_hline(yintercept = 0, linetype = "dotted", color = "deepskyblue2") +
+    ggplot2::labs(subtitle = "Residuos do Modelo 2", y = "Resíduo")
 }
+
+mod1 = glm(Species ~. ,data = iris, family = 'binomial')
+
+mod2 = glm(Species ~Sepal.Length+Petal.Length ,data = iris, family = 'binomial')
+resid(mod1,mod2)
+
+
