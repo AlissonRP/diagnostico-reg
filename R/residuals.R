@@ -10,7 +10,7 @@
 
 #' @export
 #'
-resid <- function(mod1, mod2) {
+Resid <- function(mod1, mod2) {
   res1 <- rstudent(mod1)
   res2 <- rstudent(mod2)
   res1 %>%
@@ -23,9 +23,7 @@ resid <- function(mod1, mod2) {
     ggplot2::labs(subtitle = "Residuos do Modelo 2", y = "Resíduo")
 }
 
-mod1 = glm(Species ~. ,data = iris, family = 'binomial')
+# mod1 = glm(Species ~. ,data = iris, family = 'binomial')
 
-mod2 = glm(Species ~Sepal.Length+Petal.Length ,data = iris, family = 'binomial')
-resid(mod1,mod2)
-
-
+# mod2 = glm(Species ~Sepal.Length+Petal.Length ,data = iris, family = 'binomial')
+# resid(mod1,mod2)

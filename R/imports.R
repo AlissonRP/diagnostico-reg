@@ -1,4 +1,4 @@
 
-#'@importFrom patchwork plot_layout
+#' @importFrom patchwork plot_layout
 #' @export
 patchwork::plot_layout
