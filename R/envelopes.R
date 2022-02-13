@@ -18,8 +18,8 @@ envelope <- function(mod1, mod2, subtitle1 = "Dffits do Modelo 1", subtitle2 = "
 
   return(G1 %>%
     env() +
-    G2 +
-    labs(subtitle = subtitle1) %>%
+    ggplot2::labs(subtitle = subtitle1) +
+    G2 |>
     env() +
-    labs(subtitle = subtitle2))
+    ggplot2::labs(subtitle = subtitle2))
 }

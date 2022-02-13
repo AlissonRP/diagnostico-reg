@@ -12,10 +12,17 @@
 #'
 cook <- function(mod1, mod2) {
   n <- length(mod1$y)
-  cooks.distance(mod1) %>%
-    graph(4 / (n - mod1$rank)) +
-    ggplot2::labs(subtitle = "Distância do Modelo 1", y = "Dis Cook") +
-    cooks.distance(mod2) %>%
-    graph(4 / (n - mod2$rank)) +
-    ggplot2::labs(subtitle = "Distância do Modelo 2", y = "Dis Cook")
+
+  if (missing(mod2)) {
+    cooks.distance(mod1) %>%
+      graph(4 / (n - mod1$rank)) +
+      ggplot2::labs(subtitle = "Distância do Modelo 1", y = "Dis Cook")
+  } else {
+    cooks.distance(mod1) %>%
+      graph(4 / (n - mod1$rank)) +
+      ggplot2::labs(subtitle = "Distância do Modelo 1", y = "Dis Cook") +
+      cooks.distance(mod2) %>%
+      graph(4 / (n - mod2$rank)) +
+      ggplot2::labs(subtitle = "Distância do Modelo 2", y = "Dis Cook")
+  }
 }
